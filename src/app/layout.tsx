@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeRegistry theme={theme} options={{ key: 'mui' }}>{children}</ThemeRegistry>
+      <body suppressHydrationWarning={true}>
+        <ThemeRegistry theme={theme} options={{ key: 'mui' }}>{children}</ThemeRegistry>
+      </body>
     </html>
   )
 }

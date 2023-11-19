@@ -1,3 +1,6 @@
+import { Article } from '@/features/home/article'
+import { Header } from '@/features/home/header'
+import { Grid } from '@mui/material'
 import Image from 'next/image'
 /**
  * Главная страница
@@ -6,8 +9,22 @@ import Image from 'next/image'
  */
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <>
 
-    </main>
+      <Grid container direction={'column'} rowSpacing={2}>
+        <Grid item xs={16}>
+          <Header />
+        </Grid>
+        <Grid item container xs={8} direction="row"
+          justifyContent={"center"}>
+          <Grid xs={8} container item direction="row"
+            justifyContent={"space-between"} flexWrap={"wrap"}>
+            <Article />
+            <Article />
+          </Grid>
+        </Grid>
+
+      </Grid>
+    </>
   )
 }
