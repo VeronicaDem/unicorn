@@ -6,6 +6,16 @@ const theme = createTheme({
             default: '#738ef9',
         }
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                contained: {
+                    backgroundColor: "green"
+                },
+
+            }
+        }
+    }
 });
 
 export default theme;
