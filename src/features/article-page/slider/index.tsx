@@ -10,12 +10,8 @@ const Slider: FC<SliderProps> = (props) => {
     return (
         <Carousel
             animation="slide"
-            indicators={true}
             interval={5000}
-            navButtonsAlwaysVisible={true}
-            navButtonsAlwaysInvisible={false}
             cycleNavigation={true}
-            fullHeightHover={false}
             sx={{ width: 350, height: 200 }}
         >
             {props.img.map((img) => {

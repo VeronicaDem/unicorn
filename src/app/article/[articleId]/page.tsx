@@ -1,20 +1,40 @@
 'use client'
 import Slider from "@/features/article-page/slider";
 import { Header } from "@/features/home/header";
-import { Grid, Typography, styled } from "@mui/material";
+import { Grid, IconButton, Typography, styled } from "@mui/material";
 import { useParams } from "next/navigation"
 import Carousel from "react-material-ui-carousel";
+import EditIcon from '@mui/icons-material/Edit';
+import Link from "next/link";
 /**
  * Страница с определенной статьей
  * Доступна авторизованному пользователю
  */
+const useStyles = () => {
+    return {
+        edit: {
+            backgroundColor: "white"
+        }
+    }
+}
 export default function ArticlePage(props: any) {
     const { articleId } = useParams();
+    const styles = useStyles();
     return (
         <>
+
             <Grid container direction={'column'} rowSpacing={2}>
                 <Grid item xs={16}>
                     <Header />
+
+
+                </Grid>
+                <Grid item container xs={16} justifyContent={"flex-end"}>
+                    <Grid item xs={2} >
+                        <IconButton style={styles.edit}>
+                            <EditIcon />
+                        </IconButton>
+                    </Grid>
                 </Grid>
 
                 <Grid item container xs={8}
@@ -50,7 +70,7 @@ export default function ArticlePage(props: any) {
                     </Grid>
 
                 </Grid>
-            </Grid>
+            </Grid >
 
         </>
     )
