@@ -19,7 +19,8 @@
     "next": "14.0.3",
     "node": "^18.14.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-material-ui-carousel": "^3.4.2"
   },
   "devDependencies": {
     "@types/node": "20.9.2",
