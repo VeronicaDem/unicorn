@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import isAuth from './features/auth'
-import Roles from './features/auth/roles/Roles';
+import { Roles } from './features/auth/';
 
 export default async function middleware(request: NextRequest) {
     if (!isAuth(request) && !Roles.isResolved(request) && !request.nextUrl.pathname.startsWith('/forbidden')
