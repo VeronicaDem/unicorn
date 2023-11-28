@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import isAuth from './features/auth'
+import Roles from './features/auth/roles/Roles';
 
 export default async function middleware(request: NextRequest) {
-    // Call our authentication function to check the request
-    if (!isAuth(request) && !request.nextUrl.pathname.startsWith('/forbidden')) {
-        // Respond with JSON indicating an error message
-        console.log(request.nextUrl)
+    if (!isAuth(request) && !Roles.isResolved(request) && !request.nextUrl.pathname.startsWith('/forbidden')
+        && !request.nextUrl.pathname.startsWith('/signin')) {
         return NextResponse.redirect(new URL("/forbidden", request.nextUrl.origin))
     }
+
     else return NextResponse.next();
 }
