@@ -4,7 +4,7 @@ import moment from "moment-timezone";
 
 import { NextRequest } from "next/server";
 
-export default function isAuth(request: NextRequest): boolean {
+export default async function isAuth(request: NextRequest): Promise<boolean> {
   const cookies = request.cookies;
   const accessToken: string | undefined = cookies.get("accessToken")?.value;
   if (accessToken == undefined) {
@@ -35,7 +35,7 @@ export default function isAuth(request: NextRequest): boolean {
       tokenExpiresNow(accessTokenExpiresAtDate) &&
       !tokenExpiresNow(refreshTokenExpiresDate)
     ) {
-      refresh({
+      return refresh({
         user: {
           login: cookies.get("login")?.value,
           userId: cookies.get("userId")?.value,
@@ -53,6 +53,11 @@ export default function isAuth(request: NextRequest): boolean {
           "accessTokenExpiresAt",
           res.accessTokenExpiresAt?.local()?.format()
         );
+        console.log("Successfully updated tokens");
+        return true;
+      }).catch(err => {
+        console.log("Error while refreshing tokens", err);
+        return false;
       });
     }
   }
