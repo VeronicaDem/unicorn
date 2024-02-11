@@ -1,11 +1,11 @@
 {
   "name": "unicorn",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "next lint"
   },
   "dependencies": {
@@ -23,7 +23,9 @@
     "node": "^18.14.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-hook-form": "^7.50.1",
+    "react-material-ui-carousel": "^3.4.2",
+    "universal-cookie": "^7.0.2"
   },
   "devDependencies": {
     "@types/node": "20.9.2",
